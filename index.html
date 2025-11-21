@@ -1,2 +1,462 @@
-# dezzxmods.github.io
-HALO COII
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>DezZ✘MODS — Premium Key Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-1:#0b1116; --bg-2:#0f1a21; --accent:#7dff7d; --card:rgba(0,0,0,0.55);
+  }
+  html,body{height:100%;margin:0;font-family:'Orbitron',sans-serif;background:linear-gradient(135deg,var(--bg-1),var(--bg-2));color:var(--accent)}
+  .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:12px}
+  .card{width:100%;max-width:1100px;min-height:80vh;border-radius:18px;padding:18px;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));border:2px solid rgba(0,255,120,0.12);box-shadow:0 10px 50px rgba(0,0,0,0.5);display:grid;grid-template-columns:1fr 360px;gap:16px}
+  @media (max-width:820px){.card{grid-template-columns:1fr;min-height:100vh;border-radius:10px}}
+  h1{margin:0;font-size:24px}
+  .key-display{margin-top:12px;padding:20px;border-radius:14px;background:var(--card);font-size:20px;font-weight:800;min-height:96px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;flex-direction:column}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  button,.btn{background:var(--accent);color:#000;border:0;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+  .btn-ghost{background:transparent;border:1px solid rgba(127,255,150,0.08);color:var(--accent)}
+  .progress-bar{width:100%;height:9px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden;margin-top:10px}
+  .progress-fill{height:100%;width:0%;background:var(--accent);transition:width 1s linear}
+  .note{font-size:13px;opacity:0.9;margin-top:8px}
+  .login-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.65);display:flex;align-items:center;justify-content:center;z-index:9999}
+  .login-card{background:linear-gradient(180deg,#071015,#0a1a22);padding:18px;border-radius:12px;border:1px solid rgba(127,255,150,0.06);width:320px;box-shadow:0 10px 40px rgba(0,0,0,0.6)}
+  input[type=password]{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--accent);box-sizing:border-box}
+  .small{font-size:13px;opacity:0.85}
+  .links a{display:inline-block;margin:6px;padding:8px 10px;border-radius:8px;background:rgba(0,255,150,0.06);color:var(--accent);text-decoration:none}
+  .toprow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .logout{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent);padding:8px;border-radius:8px}
+  .disabled{opacity:0.5;pointer-events:none}
+  .admin-note{font-size:12px;opacity:0.85;margin-top:8px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="main">
+      <div>
+        <div class="toprow">
+          <h1>𝘿𝙚𝙯𝙕✘𝙈𝙊𝘿𝙎 — Premium Key</h1>
+          <div style="margin-left:auto">
+            <button id="logoutBtn" class="logout" style="display:none">Logout</button>
+          </div>
+        </div>
+
+        <p class="small">Versi Premium — key tampil 1 jam. Tekan GET KEY (Premium) untuk generate.</p>
+
+        <div id="keyDisplay" class="key-display">
+          <div id="keyText">SILAHKAN KLIK GET KEY</div>
+          <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
+          <div id="timeNote" class="note"></div>
+        </div>
+
+        <div class="controls">
+          <button id="pickBtn">GET KEY (Premium)</button>
+          <button id="copyBtn">COPY</button>
+          <button id="shareBtn">SHARE</button>
+          <button id="qrBtn" class="btn-ghost">QR</button>
+        </div>
+
+        <div id="qrArea" style="display:none;margin-top:12px;text-align:center">
+          <img id="qrImg" src="" alt="QR code" style="width:160px;height:160px;border-radius:10px;background:#fff;padding:6px">
+          <div style="margin-top:8px"><a id="qrDownload" class="btn-ghost" download="key-qr.png">Download QR</a></div>
+        </div>
+
+      </div>
+
+      <div>
+        <label>🎨 Tema</label>
+        <select id="themeSel">
+          <option value="neon">Neon</option>
+          <option value="dark">Dark</option>
+          <option value="matrix">Matrix</option>
+          <option value="blue">Blue Cyber</option>
+          <option value="pink">Pink</option>
+          <option value="purple">Purple</option>
+          <option value="green">Green</option>
+          <option value="red">Red Blood</option>
+          <option value="orange">Orange Fire</option>
+          <option value="yellow">Yellow Neon</option>
+          <option value="white">White Clean</option>
+        </select>
+
+        <label style="margin-top:12px;display:block">📣 Sosial</label>
+        <div class="links">
+          <a href="https://lynk.id/dezzreal" target="_blank">Produk</a>
+          <a href="https://youtube.com/@trioshorts145?si=4sL0IFJR2DZq6DR0" target="_blank">YouTube</a>
+          <a href="https://t.me/addlist/zNLRBwRsPOQ3OTZl" target="_blank">Telegram</a>
+          <a href="https://sociabuzz.com/dezzreal" target="_blank">Sociabuzz</a>
+          <a href="https://whatsapp.com/channel/0029Vb7Gl23EFeXuLGF1yB1G" target="_blank">WhatsApp</a>
+        </div>
+
+        <div style="margin-top:12px" class="small">History (local): <span id="historyList">—</span></div>
+        <div class="admin-note">Admin: multi-PIN aktif; expired otomatis dihapus (auto-delete).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGIN OVERLAY -->
+  <div id="loginOverlay" class="login-overlay" style="display:none">
+    <div class="login-card">
+      <h3 style="margin:0 0 8px">🔒 Premium Login</h3>
+      <p class="small" style="margin:0 0 12px">Masukkan PIN atau gunakan fingerprint (jika tersedia). Masukkan sekali saja.</p>
+      <input id="pinInput" type="password" placeholder="Masukkan PIN" />
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button id="pinSubmit">KIRIM PIN</button>
+        <button id="useFingerprint" class="btn-ghost">Fingerprint</button>
+      </div>
+      <div id="loginMsg" class="small" style="color:#ff6b6b;margin-top:8px;display:none"></div>
+    </div>
+  </div>
+
+<script>
+/* ================
+   MULTI-PIN + AUTO-DELETE (ONE FILE)
+   ================ */
+
+/* CONFIG */
+const PINS_SOURCE = [
+  // default hashed pins (Dezz1_Free 1DAY_) - SAFE: stored as hashes
+  { hash: "227685c2106b9f3fa5fd04dc4bdf0c130ff7c62d20ba51bc1a7ed60af8310785", expires: "2026-12-29 23:59" }, // Dezz1
+  { "hash": "6bdf710f5cb27353597dd490cc2e44cd2351d497d5a5b34020d831f50d4428d5", expires: "2025-11-22 16:22"} // DeZZ VIP 1DAY1
+  ];
+
+const DURATION_SECONDS = 3600; // 1 hour for key display
+const MAX_BAD = 3; // attempts before ban
+const LOCAL_PINS_KEY = 'dz_pins'; // where active pin list is persisted
+
+/* elements */
+const loginOverlay = document.getElementById('loginOverlay');
+const pinInput = document.getElementById('pinInput');
+const pinSubmit = document.getElementById('pinSubmit');
+const useFingerprint = document.getElementById('useFingerprint');
+const loginMsg = document.getElementById('loginMsg');
+const pickBtn = document.getElementById('pickBtn');
+const copyBtn = document.getElementById('copyBtn');
+const shareBtn = document.getElementById('shareBtn');
+const qrBtn = document.getElementById('qrBtn');
+const qrArea = document.getElementById('qrArea');
+const qrImg = document.getElementById('qrImg');
+const qrDownload = document.getElementById('qrDownload');
+const keyText = document.getElementById('keyText');
+const progressFill = document.getElementById('progressFill');
+const timeNote = document.getElementById('timeNote');
+const historyList = document.getElementById('historyList');
+const logoutBtn = document.getElementById('logoutBtn');
+const themeSel = document.getElementById('themeSel');
+
+/* state */
+let lastKey = "";
+let countdownTimer = null;
+let expireTimer = null;
+
+/* util: sha256 */
+async function sha256(message){
+  const data = new TextEncoder().encode(message);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+/* ==== PIN storage/load/cleanup ==== */
+function loadPinsFromStorage(){
+  try{
+    const raw = localStorage.getItem(LOCAL_PINS_KEY);
+    if(!raw) return null;
+    const parsed = JSON.parse(raw);
+    if(Array.isArray(parsed)) return parsed;
+    return null;
+  }catch(e){ return null; }
+}
+
+function savePinsToStorage(pins){
+  try{ localStorage.setItem(LOCAL_PINS_KEY, JSON.stringify(pins)); }catch(e){}
+}
+
+function nowTime(){
+  return Date.now();
+}
+
+function parseExpiry(expStr){
+  // convert "YYYY-MM-DD HH:mm" to Date reliably in local timezone
+  // create "YYYY-MM-DDTHH:mm:00" (no timezone) -> Date uses local TZ
+  const t = expStr.trim().replace(' ', 'T');
+  // if no seconds, add :00
+  return new Date(t);
+}
+
+function cleanupExpiredPins(pins){
+  const kept = pins.filter(p => {
+    try{
+      const expDate = parseExpiry(p.expires);
+      return expDate.getTime() >= nowTime();
+    }catch(e){
+      return true; // if parse fails, keep to avoid accidental deletion
+    }
+  });
+  if(kept.length !== pins.length){
+    savePinsToStorage(kept);
+    console.info('Expired PIN(s) removed automatically. Remaining:', kept.length);
+  }
+  return kept;
+}
+
+function getActivePins(){
+  // load persisted pins first, fall back to source defaults
+  let pins = loadPinsFromStorage();
+  if(!pins) {
+    pins = PINS_SOURCE.slice(); // clone
+    savePinsToStorage(pins);
+  }
+  // cleanup expired immediately
+  pins = cleanupExpiredPins(pins);
+  return pins;
+}
+
+/* initialize activePins */
+let ACTIVE_PINS = getActivePins();
+
+/* device ban check */
+(function checkBan(){
+  const ban = localStorage.getItem('DEZZ_BAN');
+  if(!ban) return;
+  try{
+    const [device, until] = ban.split('|');
+    if(Date.now() < Number(until)){
+      document.body.innerHTML = `<div style="padding:40px;text-align:center"><h1 style="color:#ff6b6b">DEVICE BANNED</h1><p>Perangkat ini dibanned sampai ${new Date(Number(until)).toLocaleString()}</p></div>`;
+    } else {
+      localStorage.removeItem('DEZZ_BAN');
+      localStorage.removeItem('DEZZ_BAD');
+    }
+  }catch(e){}
+})();
+
+/* show login overlay if not authorized */
+function isAuthorized(){ return localStorage.getItem('dz_authorized') === '1'; }
+function showLoginIfNeeded(){
+  if(isAuthorized()){
+    loginOverlay.style.display = 'none';
+    logoutBtn.style.display = 'inline-block';
+  } else {
+    loginOverlay.style.display = 'flex';
+    logoutBtn.style.display = 'none';
+  }
+}
+showLoginIfNeeded();
+
+/* login flow: PIN submit (multi-pin) */
+pinSubmit.addEventListener('click', async ()=>{
+  const val = (pinInput.value || '').trim();
+  if(!val){ loginMsg.style.display='block'; loginMsg.textContent='Masukkan PIN'; return; }
+
+  // re-load active pins (in case changed)
+  ACTIVE_PINS = getActivePins();
+
+  const h = await sha256(val);
+  const idx = ACTIVE_PINS.findIndex(p => p.hash === h);
+
+  if(idx === -1){
+    loginMsg.style.display='block'; loginMsg.textContent='PIN salah atau telah dihapus!';
+    registerBadAttempt();
+    return;
+  }
+
+  // check expiry again (just in case)
+  const pinData = ACTIVE_PINS[idx];
+  const expDate = parseExpiry(pinData.expires);
+  if(Date.now() > expDate.getTime()){
+    // remove expired pin (auto-delete behavior A)
+    ACTIVE_PINS.splice(idx, 1);
+    savePinsToStorage(ACTIVE_PINS);
+    loginMsg.style.display='block'; loginMsg.textContent='PIN expired dan telah dihapus.';
+    registerBadAttempt();
+    return;
+  }
+
+  // login valid
+  localStorage.setItem('dz_authorized','1'); // enough for client-side single-login
+  loginOverlay.style.display = 'none';
+  loginMsg.style.display='none';
+  pinInput.value = '';
+  logoutBtn.style.display = 'inline-block';
+});
+
+/* fingerprint flow (WebAuthn simple attempt) */
+useFingerprint.addEventListener('click', async ()=>{
+  if(!window.PublicKeyCredential){ loginMsg.style.display='block'; loginMsg.textContent='Fingerprint/Authenticator tidak didukung.'; return; }
+  try{
+    // simple WebAuthn request for user verification (will usually prompt biometric)
+    await navigator.credentials.get({ publicKey: { challenge: new Uint8Array(16), userVerification: 'required' } });
+    localStorage.setItem('dz_authorized','1');
+    loginOverlay.style.display = 'none';
+    logoutBtn.style.display = 'inline-block';
+    loginMsg.style.display='none';
+  } catch(e){
+    loginMsg.style.display='block'; loginMsg.textContent='Fingerprint gagal atau dibatalkan';
+    registerBadAttempt();
+  }
+});
+
+/* register bad attempt and ban logic */
+function registerBadAttempt(){
+  const bad = Number(localStorage.getItem('DEZZ_BAD') || '0') + 1;
+  localStorage.setItem('DEZZ_BAD', String(bad));
+  if(bad >= MAX_BAD){
+    const device = shaDeviceFingerprintSync(); // pseudo-device id (synchronous)
+    const until = Date.now() + 300; // 5 Menit
+    localStorage.setItem('DEZZ_BAN', device + '|' + until);
+    alert('Terjadi terlalu banyak percobaan. Device dibanned 5 Menit.');
+    location.reload();
+  }
+}
+
+/* pseudo-device id (synchronous small hash function) */
+function shaDeviceFingerprintSync(){
+  // lightweight deterministic fingerprint: userAgent + screen size
+  const s = navigator.userAgent + '|' + screen.width + 'x' + screen.height + '|DEZZ';
+  // simple hash fallback (not crypto) to store string quickly
+  let h = 2166136261 >>> 0;
+  for(let i=0;i<s.length;i++){ h = Math.imul(h ^ s.charCodeAt(i), 16777619); }
+  return 'DZ_' + (h>>>0).toString(16);
+}
+
+/* LOGOUT */
+logoutBtn.addEventListener('click', ()=>{
+  localStorage.removeItem('dz_authorized');
+  // keep history but hide UI
+  showLoginIfNeeded();
+});
+
+/* KEY SYSTEM */
+const keys = [
+  "King_Cheat_H2Q4H6JW8",
+  "King_Cheats_IPA2KXJYS",
+  "King_Cheats_PO2IBUZ5J",
+  "King_Cheats_JO4P7CCO5",
+  "King_Cheats_DME08WGHW",
+  "GRINGO-6206033",
+  "King_Cheats_77EYNJMWK",
+  "King_Cheat_UO4OBCCX8",
+  "King_Cheats_28WX9YIZ5",
+  "King_Cheats_9PQJ23W3Y",
+  "GOD-X-MODS-MQBFD-12H",
+  "GRINGO-7241020",
+  "GOD-X-MODS-FIUJZ-12H",
+  "King_Cheats_PMQSCD3CU",
+  "King_Cheats_H4D74PF6D",
+  "King_Cheats_57L36GZXV",
+  "King_Cheats_O4N50ZKET",
+  "King_Cheats_XU1WJ1KAH",
+  "King_Cheats_Q1U0TLP9B",
+  "Raja_Cheat_TKYV5EHCV",
+  "King_Cheats_7PZ7NSTIT"
+];
+
+function updateHistoryDisplay(){
+  const h = JSON.parse(localStorage.getItem('dz_history') || '[]');
+  historyList.textContent = h.length ? h.slice(0,5).join(', ') : '—';
+}
+updateHistoryDisplay();
+
+function saveHistory(k){
+  let h = JSON.parse(localStorage.getItem('dz_history') || '[]');
+  h.unshift(k);
+  h = [...new Set(h)]; // unique
+  localStorage.setItem('dz_history', JSON.stringify(h.slice(0,20)));
+  updateHistoryDisplay();
+}
+
+/* helper format time */
+function formatTimeLeft(sec){
+  const h = Math.floor(sec/3600), m = Math.floor((sec%3600)/60), s = sec%60;
+  if(h>0) return `${h}h ${m}m ${s}s`;
+  if(m>0) return `${m}m ${s}s`;
+  return `${s}s`;
+}
+
+/* start key expiry (1 jam) */
+function startExpiry(){
+  if(expireTimer) clearTimeout(expireTimer);
+  if(countdownTimer) clearInterval(countdownTimer);
+  let remain = DURATION_SECONDS;
+  progressFill.style.width = '100%';
+  timeNote.textContent = `Sisa waktu: ${formatTimeLeft(remain)}`;
+  countdownTimer = setInterval(()=>{
+    remain--;
+    progressFill.style.width = Math.max(0,(remain/DURATION_SECONDS*100)) + '%';
+    timeNote.textContent = `Sisa waktu: ${formatTimeLeft(remain)}`;
+    if(remain <= 0){
+      clearInterval(countdownTimer);
+    }
+  },1000);
+  expireTimer = setTimeout(()=>{
+    // expire
+    lastKey = '';
+    keyText.textContent = 'KEY EXPIRED';
+    timeNote.textContent = 'Key expired.';
+    progressFill.style.width = '0%';
+    pickBtn.disabled = false;
+  }, DURATION_SECONDS * 1000);
+}
+
+/* pick random key */
+pickBtn.addEventListener('click', ()=>{
+  if(!isAuthorized()){
+    alert('Silakan login terlebih dahulu (PIN / Fingerprint).');
+    showLoginIfNeeded();
+    return;
+  }
+  // premium behaviour: disable while active
+  pickBtn.disabled = true;
+  const idx = Math.floor(Math.random()*keys.length);
+  lastKey = keys[idx];
+  keyText.textContent = lastKey;
+  saveHistory(lastKey);
+  startExpiry();
+});
+
+/* copy/share/qr */
+copyBtn.addEventListener('click', async ()=>{
+  if(!lastKey) return alert('Tidak ada key untuk disalin!');
+  try{ await navigator.clipboard.writeText(lastKey); alert('✔ Key disalin!'); }
+  catch(e){ alert('Gagal salin.'); }
+});
+shareBtn.addEventListener('click', async ()=>{
+  if(!lastKey) return alert('Tidak ada key untuk dibagikan!');
+  if(navigator.share){ try{ await navigator.share({text:lastKey}); }catch(e){} }
+  else alert('Share tidak didukung di browser ini.');
+});
+qrBtn.addEventListener('click', ()=>{
+  if(!lastKey) return alert('Tidak ada key untuk QR!');
+  const url = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(lastKey);
+  qrImg.src = url; qrDownload.href = url; qrArea.style.display = 'block';
+});
+
+/* theme */
+function applyTheme(t){
+  const root = document.documentElement.style;
+  const theme = {
+    neon:["#0b1116","#0f1a21","#7dff7d"],dark:["#0b0b0b","#121212","#b3b3b3"],
+    matrix:["#001100","#052005","#4bff4b"],blue:["#071029","#042033","#78d7ff"],
+    pink:["#1a0816","#2a0f22","#ff78d7"],purple:["#12071a","#1b0f2e","#b47dff"],
+    green:["#07110b","#08220e","#7dff7d"],red:["#210000","#3a0000","#ff4d4d"],
+    orange:["#2a1300","#4a1f00","#ffae42"],yellow:["#2a2a00","#444400","#fff96b"],
+    white:["#e3e3e3","#f6f6f6","#000000"]
+  };
+  if(theme[t]){ root.setProperty('--bg-1',theme[t][0]); root.setProperty('--bg-2',theme[t][1]); root.setProperty('--accent',theme[t][2]); }
+}
+themeSel.addEventListener('change', e => applyTheme(e.target.value));
+applyTheme(localStorage.getItem('dz_theme') || 'neon');
+themeSel.value = localStorage.getItem('dz_theme') || 'neon';
+themeSel.addEventListener('change', e => { localStorage.setItem('dz_theme', e.target.value); });
+
+/* on load: if authorized, hide login */
+if(isAuthorized()){ loginOverlay.style.display = 'none'; logoutBtn.style.display = 'inline-block'; } else { loginOverlay.style.display = 'flex'; }
+
+/* keep history displayed */
+updateHistoryDisplay();
+
+</script>
+</body>
+</html>
