@@ -111,22 +111,59 @@
   </div>
 
 <script>
-/* ================
-   MULTI-PIN + AUTO-DELETE (ONE FILE)
-   ================ */
 
-/* CONFIG */
 const PINS_SOURCE = [
-  // default hashed pins (Dezz1_Free 1DAY_) - SAFE: stored as hashes
-  { hash: "227685c2106b9f3fa5fd04dc4bdf0c130ff7c62d20ba51bc1a7ed60af8310785", expires: "2026-12-29 23:59" },  //Dezz1
-  { "hash": "6bdf710f5cb27353597dd490cc2e44cd2351d497d5a5b34020d831f50d4428d5", expires: "2025-11-22 16:22" },//DeZZ VIP 1DAY1
-  { hash: "a1b5aecaf91b59a685d4dbc4744e352633edc471e90be533784f88fd5bcf9cba", expires: "2025-11-22 11:57"},//DEZZXMODS3
-  {
-    "hash": "03f6f7cdab31743ce2b5e825a86eae5bf615280a8f77ee8f85cbf489e8647c3d",
+    { 
+    "hash": "5d62d9c8a11f612ece3fef7ac7d765e2e0399804e4ed0b9c41d2eb2c8ff55851",
     "expires": "2025-11-22 11:59",
-    "pin": "PwXGH1"
+    "pin": "HGCSA1"
+  },
+  {
+    "hash": "aaf3b60e730a3db2447e19f28575da172abbbf041232471e510ad6db16552e02",
+    "expires": "2025-11-22 11:59",
+    "pin": "HGCSA2"
+  },
+  {
+    "hash": "cb9e84ab8e9eb5953e5c3c755aa5440596fbf5ca582737cd54180f4c02636a2f",
+    "expires": "2025-11-22 11:59",
+    "pin": "HGCSA3"
+  },
+  {
+    "hash": "dff5133309c677bb6a80078feee8d18df67706a908b7fd13205f4c191ddaa49c",
+    "expires": "2025-11-22 11:59",
+    "pin": "HGCSA4"
+  },
+  {
+    "hash": "d80c1594647888f0f826f75a782088cba4d9120916d53361e959fca25017065b",
+    "expires": "2025-11-22 11:59",
+    "pin": "HGCSA5"
+  }, 
+  {
+    "hash": "9f873c381c0334b4fa32b3d24406ca0b9b63e842adecbcee4bfb67bc0b7ec53c",
+    "expires": "2025-11-22 10:59",
+    "pin": "KnTl1"
+  },
+  {
+    "hash": "773c75ff60f66ff18d2e9282563ce9a58c1f6ffefad89076665d3ac45be496d6",
+    "expires": "2025-11-22 10:59",
+    "pin": "KnTl2"
+  },
+  {
+    "hash": "19432f213c7aa53dcb9038d13c339314daeffe337dfccf3a1d05fdb74ef599ec",
+    "expires": "2025-11-22 10:59",
+    "pin": "KnTl3"
+  },
+  {
+    "hash": "fc7a51d6724b74f53f8f6205c1b4980903511dc280a95aab5ad76b5f9cb68052",
+    "expires": "2025-11-22 10:59",
+    "pin": "KnTl4"
+  },
+  {
+    "hash": "72d4362f2f4655ebcd1249218d266699a8f93f77a44846375451db9722fd84d1",
+    "expires": "2025-11-22 10:59",
+    "pin": "KnTl5"
   }
-];
+]
 
 const DURATION_SECONDS = 3600; // 1 hour for key display
 const MAX_BAD = 3; // attempts before ban
