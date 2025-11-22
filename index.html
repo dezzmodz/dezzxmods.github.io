@@ -9,27 +9,38 @@
   :root{
     --bg-1:#0b1116; --bg-2:#0f1a21; --accent:#7dff7d; --card:rgba(0,0,0,0.55);
   }
-  html,body{height:100%;margin:0;font-family:'Orbitron',sans-serif;background:linear-gradient(135deg,var(--bg-1),var(--bg-2));color:var(--accent)}
-  .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:12px}
-  .card{width:100%;max-width:1100px;min-height:80vh;border-radius:18px;padding:18px;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));border:2px solid rgba(0,255,120,0.12);box-shadow:0 10px 50px rgba(0,0,0,0.5);display:grid;grid-template-columns:1fr 360px;gap:16px}
-  @media (max-width:820px){.card{grid-template-columns:1fr;min-height:100vh;border-radius:10px}}
-  h1{margin:0;font-size:24px}
-  .key-display{margin-top:12px;padding:20px;border-radius:14px;background:var(--card);font-size:20px;font-weight:800;min-height:96px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;flex-direction:column}
+
+  html,body{height:100%;margin:0;font-family:'Orbitron',sans-serif;background:linear-gradient(135deg,var(--bg-1),var(--bg-2));color:var(--accent);transition:background 800ms ease}
+  .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px}
+  .card{width:100%;max-width:1100px;min-height:78vh;border-radius:16px;padding:18px;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));border:2px solid rgba(127,255,150,0.06);box-shadow:0 12px 60px rgba(0,0,0,0.6);display:grid;grid-template-columns:1fr 360px;gap:16px;backdrop-filter: blur(4px)}
+  @media (max-width:900px){.card{grid-template-columns:1fr;min-height:100vh;border-radius:10px}}
+  h1{margin:0;font-size:22px}
+  .key-display{margin-top:12px;padding:20px;border-radius:12px;background:var(--card);font-size:20px;font-weight:800;min-height:110px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;flex-direction:column;color:var(--accent)}
   .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-  button,.btn{background:var(--accent);color:#000;border:0;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
-  .btn-ghost{background:transparent;border:1px solid rgba(127,255,150,0.08);color:var(--accent)}
-  .progress-bar{width:100%;height:9px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden;margin-top:10px}
-  .progress-fill{height:100%;width:0%;background:var(--accent);transition:width 1s linear}
-  .note{font-size:13px;opacity:0.9;margin-top:8px}
+  button,.btn{background:var(--accent);color:#000;border:0;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.4)}
+  .btn-ghost{background:transparent;border:1px solid rgba(127,255,150,0.08);color:var(--accent);backdrop-filter: blur(2px)}
+  .progress-bar{width:100%;height:12px;background:rgba(255,255,255,0.06);border-radius:999px;overflow:hidden;margin-top:14px}
+  .progress-fill{height:100%;width:0%;background:linear-gradient(90deg, rgba(255,255,255,0.06), var(--accent));transition:width 250ms linear;box-shadow:0 6px 20px rgba(0,0,0,0.5)}
+  .note{font-size:13px;opacity:0.95;margin-top:8px}
   .login-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.65);display:flex;align-items:center;justify-content:center;z-index:9999}
-  .login-card{background:linear-gradient(180deg,#071015,#0a1a22);padding:18px;border-radius:12px;border:1px solid rgba(127,255,150,0.06);width:320px;box-shadow:0 10px 40px rgba(0,0,0,0.6)}
-  input[type=password]{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--accent);box-sizing:border-box}
+  .login-card{background:linear-gradient(180deg,#071015,#0a1a22);padding:18px;border-radius:12px;border:1px solid rgba(127,255,150,0.06);width:360px;box-shadow:0 10px 40px rgba(0,0,0,0.6)}
+  input[type=password]{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--accent);box-sizing:border-box}
   .small{font-size:13px;opacity:0.85}
   .links a{display:inline-block;margin:6px;padding:8px 10px;border-radius:8px;background:rgba(0,255,150,0.06);color:var(--accent);text-decoration:none}
   .toprow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
   .logout{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent);padding:8px;border-radius:8px}
   .disabled{opacity:0.5;pointer-events:none}
   .admin-note{font-size:12px;opacity:0.85;margin-top:8px}
+  /* Neon popup */
+  .modal-wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:10000;pointer-events:none}
+  .modal{min-width:320px;max-width:780px;background:linear-gradient(180deg,rgba(0,0,0,0.75),rgba(0,0,0,0.5));border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 20px 60px rgba(0,0,0,0.6);transform:scale(.9);opacity:0;transition:all 240ms ease;pointer-events:auto}
+  .modal.show{transform:scale(1);opacity:1}
+  .neon-title{font-size:18px;font-weight:800;text-align:center;color:var(--accent);text-shadow:0 0 12px rgba(0,255,150,0.18),0 0 30px rgba(0,255,150,0.08)}
+  .modal-key{font-family:monospace;margin:14px 0;padding:12px;border-radius:10px;background:rgba(0,0,0,0.35);text-align:center;font-size:18px;color:#000;background:linear-gradient(90deg,#bfffbf,var(--accent));box-shadow:0 6px 30px rgba(0,255,150,0.08)}
+  .modal-meta{font-size:13px;opacity:0.85;text-align:center;margin-top:6px}
+  .neon-glow{box-shadow:0 6px 28px rgba(0,255,150,0.12), 0 0 80px rgba(0,255,150,0.06)}
+  /* small helpers */
+  .flex-center{display:flex;align-items:center;gap:8px}
 </style>
 </head>
 <body>
@@ -43,11 +54,13 @@
           </div>
         </div>
 
-        <p class="small">Versi Premium — key tampil 1 jam. Tekan GET KEY (Premium) untuk generate.</p>
+        <p class="small">Versi Premium — key tampil <strong>1 jam</strong>. Tekan <em>GET KEY (Premium)</em> untuk generate.</p>
 
         <div id="keyDisplay" class="key-display">
           <div id="keyText">SILAHKAN KLIK GET KEY</div>
-          <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
+          <div class="progress-bar" style="width:90%">
+            <div id="progressFill" class="progress-fill" style="width:0%"></div>
+          </div>
           <div id="timeNote" class="note"></div>
         </div>
 
@@ -68,17 +81,14 @@
       <div>
         <label>🎨 Tema</label>
         <select id="themeSel">
+          <option value="random">Random (setiap reload)</option>
           <option value="neon">Neon</option>
           <option value="dark">Dark</option>
           <option value="matrix">Matrix</option>
-          <option value="blue">Blue Cyber</option>
+          <option value="blue">Biru</option>
           <option value="pink">Pink</option>
           <option value="purple">Purple</option>
           <option value="green">Green</option>
-          <option value="red">Red Blood</option>
-          <option value="orange">Orange Fire</option>
-          <option value="yellow">Yellow Neon</option>
-          <option value="white">White Clean</option>
         </select>
 
         <label style="margin-top:12px;display:block">📣 Sosial</label>
@@ -100,7 +110,7 @@
   <div id="loginOverlay" class="login-overlay" style="display:none">
     <div class="login-card">
       <h3 style="margin:0 0 8px">🔒 Premium Login</h3>
-      <p class="small" style="margin:0 0 12px">Masukkan PIN atau gunakan fingerprint (jika tersedia). Masukkan sekali saja.</p>
+      <p class="small" style="margin:0 0 12px">Masukkan PIN atau gunakan fingerprint (jika tersedia).</p>
       <input id="pinInput" type="password" placeholder="Masukkan PIN" />
       <div style="display:flex;gap:8px;margin-top:10px">
         <button id="pinSubmit">KIRIM PIN</button>
@@ -110,66 +120,50 @@
     </div>
   </div>
 
+  <!-- Neon Modal (success) -->
+  <div id="modalWrap" class="modal-wrap" aria-hidden="true" style="display:none">
+    <div id="modal" class="modal neon-glow">
+      <div class="neon-title" id="modalTitle">KEY GENERATED</div>
+      <div class="modal-key" id="modalKey">-</div>
+      <div class="modal-meta" id="modalMeta">Expired: -</div>
+      <div style="text-align:center;margin-top:12px">
+        <button id="modalClose" class="btn-ghost">Tutup</button>
+        <button id="modalCopy" class="btn">Salin</button>
+      </div>
+    </div>
+  </div>
+
 <script>
+/* =========================
+   Configuration & Pins
+   ========================= */
 
+/* Multi-PIN list (hashes + expires + plain pin for admin reference) */
 const PINS_SOURCE = [
-    { 
-    "hash": "5d62d9c8a11f612ece3fef7ac7d765e2e0399804e4ed0b9c41d2eb2c8ff55851",
-    "expires": "2025-11-22 11:59",
-    "pin": "HGCSA1"
-  },
-  {
-    "hash": "aaf3b60e730a3db2447e19f28575da172abbbf041232471e510ad6db16552e02",
-    "expires": "2025-11-22 11:59",
-    "pin": "HGCSA2"
-  },
-  {
-    "hash": "cb9e84ab8e9eb5953e5c3c755aa5440596fbf5ca582737cd54180f4c02636a2f",
-    "expires": "2025-11-22 11:59",
-    "pin": "HGCSA3"
-  },
-  {
-    "hash": "dff5133309c677bb6a80078feee8d18df67706a908b7fd13205f4c191ddaa49c",
-    "expires": "2025-11-22 11:59",
-    "pin": "HGCSA4"
-  },
-  {
-    "hash": "d80c1594647888f0f826f75a782088cba4d9120916d53361e959fca25017065b",
-    "expires": "2025-11-22 11:59",
-    "pin": "HGCSA5"
-  }, 
-  {
-    "hash": "9f873c381c0334b4fa32b3d24406ca0b9b63e842adecbcee4bfb67bc0b7ec53c",
-    "expires": "2025-11-22 10:59",
-    "pin": "KnTl1"
-  },
-  {
-    "hash": "773c75ff60f66ff18d2e9282563ce9a58c1f6ffefad89076665d3ac45be496d6",
-    "expires": "2025-11-22 10:59",
-    "pin": "KnTl2"
-  },
-  {
-    "hash": "19432f213c7aa53dcb9038d13c339314daeffe337dfccf3a1d05fdb74ef599ec",
-    "expires": "2025-11-22 10:59",
-    "pin": "KnTl3"
-  },
-  {
-    "hash": "fc7a51d6724b74f53f8f6205c1b4980903511dc280a95aab5ad76b5f9cb68052",
-    "expires": "2025-11-22 10:59",
-    "pin": "KnTl4"
-  },
-  {
-    "hash": "72d4362f2f4655ebcd1249218d266699a8f93f77a44846375451db9722fd84d1",
-    "expires": "2025-11-22 10:59",
-    "pin": "KnTl5"
-  }
-]
+{ "hash": "98609a6903b595753f0717e4521c4c2f3d02c5776175511cd198963d14c6f6af", "expires": "2025-11-22 14:10", "pin": "woiii1" },
+{ "hash": "8107d321db0a81cc0cde289796e14a8026772fa82ae0c15e85d34519428d1e90", "expires": "2025-11-22 14:10", "pin": "woiii2" },
+{ "hash": "a0091d9b9d4ddaf97dbe856f72ece45a18a599c111ea40d25141bfccf6fd358a", "expires": "2025-11-22 14:10", "pin": "woiii3" },
+{ "hash": "33265d844babf832a60d80686f611d8e3f0e43d992171a882ed3a610c4ceb68f", "expires": "2025-11-22 14:10", "pin": "woiii4" },
+{ "hash": "3618889cc265a53ae578c957a185c397dbd2abb250add3c60ef5a566a00f97c2", "expires": "2025-11-23 13:17", "pin": "VIP 1DAY1" }
+];
 
-const DURATION_SECONDS = 3600; // 1 hour for key display
-const MAX_BAD = 3; // attempts before ban
-const LOCAL_PINS_KEY = 'dz_pins'; // where active pin list is persisted
+const DURATION_SECONDS = 3600; // key visible 1 hour
+const MAX_BAD = 3;
+const LOCAL_PINS_KEY = 'dz_pins_active';
 
-/* elements */
+/* keys pool (example keys) */
+const keys = [
+  "King_Cheat_H2Q4H6JW8","King_Cheats_IPA2KXJYS","King_Cheats_PO2IBUZ5J","King_Cheats_JO4P7CCO5",
+  "King_Cheats_DME08WGHW","GRINGO-6206033","King_Cheats_77EYNJMWK","King_Cheat_UO4OBCCX8",
+  "King_Cheats_28WX9YIZ5","King_Cheats_9PQJ23W3Y","GOD-X-MODS-MQBFD-12H","GRINGO-7241020",
+  "GOD-X-MODS-FIUJZ-12H","King_Cheats_PMQSCD3CU","King_Cheats_H4D74PF6D","King_Cheats_57L36GZXV",
+  "King_Cheats_O4N50ZKET","King_Cheats_XU1WJ1KAH","King_Cheats_Q1U0TLP9B","Raja_Cheat_TKYV5EHCV",
+  "King_Cheats_7PZ7NSTIT"
+];
+
+/* =========================
+   Elements
+   ========================= */
 const loginOverlay = document.getElementById('loginOverlay');
 const pinInput = document.getElementById('pinInput');
 const pinSubmit = document.getElementById('pinSubmit');
@@ -189,20 +183,44 @@ const historyList = document.getElementById('historyList');
 const logoutBtn = document.getElementById('logoutBtn');
 const themeSel = document.getElementById('themeSel');
 
+const modalWrap = document.getElementById('modalWrap');
+const modal = document.getElementById('modal');
+const modalKey = document.getElementById('modalKey');
+const modalMeta = document.getElementById('modalMeta');
+const modalTitle = document.getElementById('modalTitle');
+const modalClose = document.getElementById('modalClose');
+const modalCopy = document.getElementById('modalCopy');
+
 /* state */
 let lastKey = "";
 let countdownTimer = null;
 let expireTimer = null;
 
-/* util: sha256 */
+/* =========================
+   Utility functions
+   ========================= */
 async function sha256(message){
   const data = new TextEncoder().encode(message);
   const hashBuffer = await crypto.subtle.digest('SHA-256', data);
   const hashArray = Array.from(new Uint8Array(hashBuffer));
   return hashArray.map(b => b.toString(16).padStart(2,'0')).join('');
 }
+function nowTime(){ return Date.now(); }
+function parseExpiry(expStr){
+  // Accept "YYYY-MM-DD HH:mm" or "YYYY-MM-DDTHH:mm"
+  const t = expStr.trim().replace(' ', 'T');
+  return new Date(t);
+}
+function formatTimeLeft(sec){
+  const h = Math.floor(sec/3600), m = Math.floor((sec%3600)/60), s = sec%60;
+  if(h>0) return `${h}h ${m}m ${s}s`;
+  if(m>0) return `${m}m ${s}s`;
+  return `${s}s`;
+}
 
-/* ==== PIN storage/load/cleanup ==== */
+/* =========================
+   PIN storage / cleanup
+   ========================= */
 function loadPinsFromStorage(){
   try{
     const raw = localStorage.getItem(LOCAL_PINS_KEY);
@@ -212,22 +230,7 @@ function loadPinsFromStorage(){
     return null;
   }catch(e){ return null; }
 }
-
-function savePinsToStorage(pins){
-  try{ localStorage.setItem(LOCAL_PINS_KEY, JSON.stringify(pins)); }catch(e){}
-}
-
-function nowTime(){
-  return Date.now();
-}
-
-function parseExpiry(expStr){
-  // convert "YYYY-MM-DD HH:mm" to Date reliably in local timezone
-  // create "YYYY-MM-DDTHH:mm:00" (no timezone) -> Date uses local TZ
-  const t = expStr.trim().replace(' ', 'T');
-  // if no seconds, add :00
-  return new Date(t);
-}
+function savePinsToStorage(pins){ try{ localStorage.setItem(LOCAL_PINS_KEY, JSON.stringify(pins)); }catch(e){} }
 
 function cleanupExpiredPins(pins){
   const kept = pins.filter(p => {
@@ -235,39 +238,35 @@ function cleanupExpiredPins(pins){
       const expDate = parseExpiry(p.expires);
       return expDate.getTime() >= nowTime();
     }catch(e){
-      return true; // if parse fails, keep to avoid accidental deletion
+      return true;
     }
   });
-  if(kept.length !== pins.length){
-    savePinsToStorage(kept);
-    console.info('Expired PIN(s) removed automatically. Remaining:', kept.length);
-  }
+  if(kept.length !== pins.length) savePinsToStorage(kept);
   return kept;
 }
 
 function getActivePins(){
-  // load persisted pins first, fall back to source defaults
   let pins = loadPinsFromStorage();
-  if(!pins) {
-    pins = PINS_SOURCE.slice(); // clone
+  if(!pins){
+    pins = PINS_SOURCE.slice();
     savePinsToStorage(pins);
   }
-  // cleanup expired immediately
   pins = cleanupExpiredPins(pins);
   return pins;
 }
 
-/* initialize activePins */
 let ACTIVE_PINS = getActivePins();
 
-/* device ban check */
+/* =========================
+   Device ban check
+   ========================= */
 (function checkBan(){
   const ban = localStorage.getItem('DEZZ_BAN');
   if(!ban) return;
   try{
     const [device, until] = ban.split('|');
     if(Date.now() < Number(until)){
-      document.body.innerHTML = `<div style="padding:40px;text-align:center"><h1 style="color:#ff6b6b">DEVICE BANNED</h1><p>Perangkat ini dibanned sampai ${new Date(Number(until)).toLocaleString()}</p></div>`;
+      document.body.innerHTML = `<div style="padding:40px;text-align:center"><h1 style="color:#ff6b6b">DEVICE BANNED</h1><p>Perangkat dibanned sampai ${new Date(Number(until)).toLocaleString()}</p></div>`;
     } else {
       localStorage.removeItem('DEZZ_BAN');
       localStorage.removeItem('DEZZ_BAD');
@@ -275,7 +274,9 @@ let ACTIVE_PINS = getActivePins();
   }catch(e){}
 })();
 
-/* show login overlay if not authorized */
+/* =========================
+   Auth: show/hide overlay
+   ========================= */
 function isAuthorized(){ return localStorage.getItem('dz_authorized') === '1'; }
 function showLoginIfNeeded(){
   if(isAuthorized()){
@@ -288,14 +289,14 @@ function showLoginIfNeeded(){
 }
 showLoginIfNeeded();
 
-/* login flow: PIN submit (multi-pin) */
+/* =========================
+   Login: PIN submit
+   ========================= */
 pinSubmit.addEventListener('click', async ()=>{
   const val = (pinInput.value || '').trim();
   if(!val){ loginMsg.style.display='block'; loginMsg.textContent='Masukkan PIN'; return; }
 
-  // re-load active pins (in case changed)
   ACTIVE_PINS = getActivePins();
-
   const h = await sha256(val);
   const idx = ACTIVE_PINS.findIndex(p => p.hash === h);
 
@@ -305,11 +306,9 @@ pinSubmit.addEventListener('click', async ()=>{
     return;
   }
 
-  // check expiry again (just in case)
   const pinData = ACTIVE_PINS[idx];
   const expDate = parseExpiry(pinData.expires);
   if(Date.now() > expDate.getTime()){
-    // remove expired pin (auto-delete behavior A)
     ACTIVE_PINS.splice(idx, 1);
     savePinsToStorage(ACTIVE_PINS);
     loginMsg.style.display='block'; loginMsg.textContent='PIN expired dan telah dihapus.';
@@ -317,19 +316,17 @@ pinSubmit.addEventListener('click', async ()=>{
     return;
   }
 
-  // login valid
-  localStorage.setItem('dz_authorized','1'); // enough for client-side single-login
+  localStorage.setItem('dz_authorized','1');
   loginOverlay.style.display = 'none';
   loginMsg.style.display='none';
   pinInput.value = '';
   logoutBtn.style.display = 'inline-block';
 });
 
-/* fingerprint flow (WebAuthn simple attempt) */
+/* WebAuthn fingerprint attempt */
 useFingerprint.addEventListener('click', async ()=>{
   if(!window.PublicKeyCredential){ loginMsg.style.display='block'; loginMsg.textContent='Fingerprint/Authenticator tidak didukung.'; return; }
   try{
-    // simple WebAuthn request for user verification (will usually prompt biometric)
     await navigator.credentials.get({ publicKey: { challenge: new Uint8Array(16), userVerification: 'required' } });
     localStorage.setItem('dz_authorized','1');
     loginOverlay.style.display = 'none';
@@ -341,24 +338,22 @@ useFingerprint.addEventListener('click', async ()=>{
   }
 });
 
-/* register bad attempt and ban logic */
+/* =========================
+   Bad attempts & ban
+   ========================= */
 function registerBadAttempt(){
   const bad = Number(localStorage.getItem('DEZZ_BAD') || '0') + 1;
   localStorage.setItem('DEZZ_BAD', String(bad));
   if(bad >= MAX_BAD){
-    const device = shaDeviceFingerprintSync(); // pseudo-device id (synchronous)
-    const until = Date.now() + 300; // 5 Menit
+    const device = shaDeviceFingerprintSync();
+    const until = Date.now() + (5 * 60 * 1000); // 5 minutes
     localStorage.setItem('DEZZ_BAN', device + '|' + until);
     alert('Terjadi terlalu banyak percobaan. Device dibanned 5 Menit.');
     location.reload();
   }
 }
-
-/* pseudo-device id (synchronous small hash function) */
 function shaDeviceFingerprintSync(){
-  // lightweight deterministic fingerprint: userAgent + screen size
   const s = navigator.userAgent + '|' + screen.width + 'x' + screen.height + '|DEZZ';
-  // simple hash fallback (not crypto) to store string quickly
   let h = 2166136261 >>> 0;
   for(let i=0;i<s.length;i++){ h = Math.imul(h ^ s.charCodeAt(i), 16777619); }
   return 'DZ_' + (h>>>0).toString(16);
@@ -367,58 +362,73 @@ function shaDeviceFingerprintSync(){
 /* LOGOUT */
 logoutBtn.addEventListener('click', ()=>{
   localStorage.removeItem('dz_authorized');
-  // keep history but hide UI
   showLoginIfNeeded();
 });
 
-/* KEY SYSTEM */
-const keys = [
-  "King_Cheat_H2Q4H6JW8",
-  "King_Cheats_IPA2KXJYS",
-  "King_Cheats_PO2IBUZ5J",
-  "King_Cheats_JO4P7CCO5",
-  "King_Cheats_DME08WGHW",
-  "GRINGO-6206033",
-  "King_Cheats_77EYNJMWK",
-  "King_Cheat_UO4OBCCX8",
-  "King_Cheats_28WX9YIZ5",
-  "King_Cheats_9PQJ23W3Y",
-  "GOD-X-MODS-MQBFD-12H",
-  "GRINGO-7241020",
-  "GOD-X-MODS-FIUJZ-12H",
-  "King_Cheats_PMQSCD3CU",
-  "King_Cheats_H4D74PF6D",
-  "King_Cheats_57L36GZXV",
-  "King_Cheats_O4N50ZKET",
-  "King_Cheats_XU1WJ1KAH",
-  "King_Cheats_Q1U0TLP9B",
-  "Raja_Cheat_TKYV5EHCV",
-  "King_Cheats_7PZ7NSTIT"
-];
-
+/* =========================
+   History helpers
+   ========================= */
 function updateHistoryDisplay(){
   const h = JSON.parse(localStorage.getItem('dz_history') || '[]');
-  historyList.textContent = h.length ? h.slice(0,5).join(', ') : '—';
+  historyList.textContent = h.length ? h.slice(0,6).join(' · ') : '—';
 }
-updateHistoryDisplay();
-
 function saveHistory(k){
   let h = JSON.parse(localStorage.getItem('dz_history') || '[]');
   h.unshift(k);
-  h = [...new Set(h)]; // unique
-  localStorage.setItem('dz_history', JSON.stringify(h.slice(0,20)));
+  h = [...new Set(h)];
+  localStorage.setItem('dz_history', JSON.stringify(h.slice(0,40)));
   updateHistoryDisplay();
 }
+updateHistoryDisplay();
 
-/* helper format time */
-function formatTimeLeft(sec){
-  const h = Math.floor(sec/3600), m = Math.floor((sec%3600)/60), s = sec%60;
-  if(h>0) return `${h}h ${m}m ${s}s`;
-  if(m>0) return `${m}m ${s}s`;
-  return `${s}s`;
+/* =========================
+   THEME: random on load, allow choose
+   ========================= */
+const THEMES = [
+  {bg1:'#0b1116', bg2:'#0f1a21', accent:'#7dff7d'},
+  {bg1:'#0b0716', bg2:'#220f3b', accent:'#b47dff'},
+  {bg1:'#001100', bg2:'#052005', accent:'#4bff4b'},
+  {bg1:'#071029', bg2:'#042033', accent:'#78d7ff'},
+  {bg1:'#2a0808', bg2:'#3a0e0f', accent:'#ff6b6b'},
+  {bg1:'#0a1a0f', bg2:'#072117', accent:'#7df0c4'},
+  {bg1:'#1b071a', bg2:'#0b0f2e', accent:'#ff78d7'},
+];
+
+function applyThemeObj(o){
+  document.documentElement.style.setProperty('--bg-1', o.bg1);
+  document.documentElement.style.setProperty('--bg-2', o.bg2);
+  document.documentElement.style.setProperty('--accent', o.accent);
 }
 
-/* start key expiry (1 jam) */
+function pickRandomTheme(){
+  const r = THEMES[Math.floor(Math.random()*THEMES.length)];
+  applyThemeObj(r);
+  themeSel.value = 'random';
+  localStorage.removeItem('dz_theme');
+}
+
+/* map select => theme */
+function applyThemeByName(name){
+  if(name === 'random') { pickRandomTheme(); return; }
+  const map = {
+    neon: THEMES[0], purple: THEMES[1], matrix: THEMES[2],
+    blue: THEMES[3], red: THEMES[4], green: THEMES[5], pink: THEMES[6], dark: {bg1:'#050505',bg2:'#0b0b0b',accent:'#bdbdbd'}
+  };
+  const t = map[name] || THEMES[0];
+  applyThemeObj(t);
+  localStorage.setItem('dz_theme', name);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const saved = localStorage.getItem('dz_theme');
+  if(!saved || saved === 'random') pickRandomTheme();
+  else applyThemeByName(saved);
+});
+themeSel.addEventListener('change', e => applyThemeByName(e.target.value));
+
+/* =========================
+   Expiry & Key display logic
+   ========================= */
 function startExpiry(){
   if(expireTimer) clearTimeout(expireTimer);
   if(countdownTimer) clearInterval(countdownTimer);
@@ -434,7 +444,6 @@ function startExpiry(){
     }
   },1000);
   expireTimer = setTimeout(()=>{
-    // expire
     lastKey = '';
     keyText.textContent = 'KEY EXPIRED';
     timeNote.textContent = 'Key expired.';
@@ -443,23 +452,68 @@ function startExpiry(){
   }, DURATION_SECONDS * 1000);
 }
 
-/* pick random key */
+/* =========================
+   Generate Flow (with progress bar)
+   ========================= */
+async function showGenerateProgressAndReveal(){
+  // visual progress: grow progressFill from 0 to 100 over ~2.5s, then show modal
+  progressFill.style.transition = 'width 400ms linear';
+  progressFill.style.width = '6%';
+  keyText.textContent = 'GENERATING…';
+  timeNote.textContent = 'Memproses...';
+
+  // step increments
+  const steps = [22, 38, 62, 78, 92, 100];
+  for(let i=0;i<steps.length;i++){
+    await new Promise(r=>setTimeout(r, 300 + Math.random()*260));
+    progressFill.style.width = steps[i] + '%';
+  }
+  // small pause
+  await new Promise(r=>setTimeout(r, 280));
+  // reveal key
+  pickBtn.disabled = false;
+  revealKeyModal();
+}
+
+function revealKeyModal(){
+  // assign lastKey and expiry
+  const expiresAt = new Date(Date.now() + DURATION_SECONDS*1000);
+  const expireStr = `${expiresAt.getFullYear()}-${String(expiresAt.getMonth()+1).padStart(2,'0')}-${String(expiresAt.getDate()).padStart(2,'0')} ${String(expiresAt.getHours()).padStart(2,'0')}:${String(expiresAt.getMinutes()).padStart(2,'0')}`;
+  modalKey.textContent = lastKey || 'UNKNOWN';
+  modalMeta.textContent = `Expired: ${expireStr}`;
+  modalTitle.textContent = 'KEY GENERATED';
+  // show modal
+  modalWrap.style.display = 'flex';
+  setTimeout(()=> modal.classList.add('show'), 20);
+  modalWrap.setAttribute('aria-hidden','false');
+  // start expiry countdown in UI
+  startExpiry();
+}
+
+/* pick random key (button) */
 pickBtn.addEventListener('click', ()=>{
   if(!isAuthorized()){
-    alert('Silakan login terlebih dahulu (PIN / Fingerprint).');
     showLoginIfNeeded();
+    alert('Silakan login terlebih dahulu (PIN / Fingerprint).');
     return;
   }
-  // premium behaviour: disable while active
+
+  // disable and start
   pickBtn.disabled = true;
+  // pick key
   const idx = Math.floor(Math.random()*keys.length);
   lastKey = keys[idx];
-  keyText.textContent = lastKey;
+  // show quick local display while progress animates
+  keyText.textContent = 'MENYIAPKAN KEY...';
+  timeNote.textContent = '';
+  progressFill.style.width = '3%';
+  // simulate progress + show modal
+  showGenerateProgressAndReveal();
+  // save history
   saveHistory(lastKey);
-  startExpiry();
 });
 
-/* copy/share/qr */
+/* COPY / SHARE / QR */
 copyBtn.addEventListener('click', async ()=>{
   if(!lastKey) return alert('Tidak ada key untuk disalin!');
   try{ await navigator.clipboard.writeText(lastKey); alert('✔ Key disalin!'); }
@@ -476,26 +530,23 @@ qrBtn.addEventListener('click', ()=>{
   qrImg.src = url; qrDownload.href = url; qrArea.style.display = 'block';
 });
 
-/* theme */
-function applyTheme(t){
-  const root = document.documentElement.style;
-  const theme = {
-    neon:["#0b1116","#0f1a21","#7dff7d"],dark:["#0b0b0b","#121212","#b3b3b3"],
-    matrix:["#001100","#052005","#4bff4b"],blue:["#071029","#042033","#78d7ff"],
-    pink:["#1a0816","#2a0f22","#ff78d7"],purple:["#12071a","#1b0f2e","#b47dff"],
-    green:["#07110b","#08220e","#7dff7d"],red:["#210000","#3a0000","#ff4d4d"],
-    orange:["#2a1300","#4a1f00","#ffae42"],yellow:["#2a2a00","#444400","#fff96b"],
-    white:["#e3e3e3","#f6f6f6","#000000"]
-  };
-  if(theme[t]){ root.setProperty('--bg-1',theme[t][0]); root.setProperty('--bg-2',theme[t][1]); root.setProperty('--accent',theme[t][2]); }
-}
-themeSel.addEventListener('change', e => applyTheme(e.target.value));
-applyTheme(localStorage.getItem('dz_theme') || 'neon');
-themeSel.value = localStorage.getItem('dz_theme') || 'neon';
-themeSel.addEventListener('change', e => { localStorage.setItem('dz_theme', e.target.value); });
+/* modal controls */
+modalClose.addEventListener('click', ()=>{ modal.classList.remove('show'); setTimeout(()=> modalWrap.style.display='none',240); });
+modalCopy.addEventListener('click', async ()=>{
+  try{ await navigator.clipboard.writeText(modalKey.textContent); alert('✔ Key disalin!'); }catch(e){ alert('Gagal salin.'); }
+});
 
-/* on load: if authorized, hide login */
-if(isAuthorized()){ loginOverlay.style.display = 'none'; logoutBtn.style.display = 'inline-block'; } else { loginOverlay.style.display = 'flex'; }
+/* =========================
+   PIN authoring: allow admin to inject or reset active pins via console (optional)
+   Example usage in console:
+   localStorage.setItem('dz_pins_active', JSON.stringify(PINS_SOURCE));
+   ========================= */
+
+/* On first load ensure active saved */
+if(!loadPinsFromStorage()) savePinsToStorage(PINS_SOURCE);
+
+/* Optional: auto-open login on first visit */
+if(!isAuthorized()) loginOverlay.style.display = 'flex';
 
 /* keep history displayed */
 updateHistoryDisplay();
